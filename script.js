@@ -31,7 +31,7 @@ class Calculator {
   compute() {
     let computation;
     const prev = parseFloat(this.previousOperand);
-    const current = parseFloat(this.current);
+    const current = parseFloat(this.currentOperand);
     if (isNaN(prev) || isNaN(current)) return;
     switch (this.operation) {
       case "+":
@@ -94,5 +94,10 @@ operationButtons.forEach((button) => {
 
 equalsButton.addEventListener("click", (button) => {
   calculator.compute();
+  calculator.updateDisplay();
+});
+
+allClearButton.addEventListener("click", (button) => {
+  calculator.clear();
   calculator.updateDisplay();
 });
